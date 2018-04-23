@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from .serializers import UserSerializer, GroupSerializer, MachineSerializer, MaterialSerializer
-
+from .models import Material, Machine
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -19,10 +19,10 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
 
 class MachineViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all()
-    serializer_class = MachineSerializer
+    queryset = Material.objects.all()
+    serializer_class = GroupSerializer
 
 
 class MaterialViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
-    serializer_class = MaterialSerializer
+    serializer_class = GroupSerializer
