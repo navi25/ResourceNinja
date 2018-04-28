@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from .forms import TestForm
 from django.http import HttpResponseRedirect
+from .models import CustomerModel, MachineModel
+from django.views import generic
 
 # Create your views here.
 def submit_form(request):
-
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -27,3 +28,14 @@ def success(request):
         request,
         'success.html'
     )
+
+
+class CustomerListView(generic.ListView):
+    model = CustomerModel
+    context_object_name = 'customersList'
+    queryset = CustomerModel.objects.all()
+    template_name = 'customers.html'
+
+class CustomersDetailView(generic.DetailView):
+    model = CustomerModel
+    template_name = 'customer_detail.html'

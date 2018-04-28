@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Customers List</h1>
+
+    {% if customerList %}
+    <ul>
+
+      {% for c in customerList %}
+      <li>
+        <a href="{{ c.get_individual_url }}">{{ c.name }}</a> ({{c.department}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no Customers in the LAB.</p>
+    {% endif %}       
+{% endblock %}
