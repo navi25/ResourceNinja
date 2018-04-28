@@ -27,3 +27,13 @@ class MachineModel(models.Model):
         return reverse('machines')
 
 
+class OrderModel(models.Model):
+    firstName = models.CharField(max_length=100)
+    lastName = models.CharField(max_length=100)
+    dateSubmitted = models.DateField()
+    datePartsNeeded =  models.DateField()
+    facultyAdvisor = models.CharField(max_length=200)
+    paymentAccountNo = models.IntegerField()
+    className = models.CharField(max_length=100)
+    machineRequested = models.CharField(max_length=200)
+    listParts = models.CharField(max_length=200)
