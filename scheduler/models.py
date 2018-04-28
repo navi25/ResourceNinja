@@ -1,29 +1,17 @@
 from django.db import models
-from django.urls import reverse
+import sys
+sys.path.append('../')
+
+from Ninja.SubModels import customers
+from Ninja.SubModels import Job
+from Ninja.SubModels import laborers
+from Ninja.SubModels import machine
+from Ninja.SubModels import machineStatus
+from Ninja.SubModels import Material
+from Ninja.SubModels import schedulingAndUsage
+from Ninja.SubModels import Training
+
+
+
 
 # Create your models here.
-class CustomerModel(models.Model):
-    name = models.CharField(max_length=100)
-    department = models.CharField(max_length=300)
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        return reverse('customers')
-
-    def get_individual_url(self):
-        return reverse('customer-detail',args=[str(self.id)])
-
-
-class MachineModel(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=300)
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        return reverse('machines')
-
-
