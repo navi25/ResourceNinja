@@ -23,3 +23,11 @@ class RequestOrderForm(forms.ModelForm):
         fields = ['firstName', 'lastName', 'dateSubmitted', 'datePartsNeeded', 'facultyAdvisor', 'paymentAccountNo',
                   'className', 'machineRequested', 'listParts'
                   ]
+        # labels = ['First Name', 'Last Name', 'Data Submitted (mm/dd/yyyy)', 'Data Parts Needed (mm/dd/yyyy)'
+        #           'Professor or ASU Acct Rep that will be approving the purchase',
+        #           'ASU Acct number to be used for payment'
+        #           'Class Name'
+        #           'Machine Requested'
+        #           'List of Part Names and Quantities'
+        #           ]
+

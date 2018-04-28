@@ -3,27 +3,30 @@ from .forms import TestForm, RequestForm, RequestOrderForm
 from django.http import HttpResponseRedirect
 from .models import CustomerModel, MachineModel, OrderModel
 from django.views import generic
-from .services import *
-from Constants import EMAIL
-import json
 
+# Create your views here.
 def submit_form(request):
+    # if this is a POST request we need to process the form data
     if request.method == 'POST':
-
+        # create a form instance and populate it with data from the request:
         form = RequestOrderForm(request.POST)
-
         # check whether it's valid:
+
         if form.is_valid():
             data = form.cleaned_data
             newOrder = form.save()
-            emailData = {
-                         EMAIL.FROM : "admin@resourceninja.asu.edu",
-                         EMAIL.RECIPIENT_LIST : ["sdasgu11@asu.edu"],
-                         EMAIL.SUBJECT : "Testing Email Settings",
-                         EMAIL.BODY : "Hi Admin, \nThe following request has been received : \n%s"%json.dumps(data)
-                         }
-            SendEmail(emailData) # Sends Email
-            # redirect to a Success:
+            print("New Order = " + str(newOrder))
+            print("Data = " + str(data))
+            firstName = data['firstName']
+            lastName = data['lastName']
+            dateSubmitted = data['dateSubmitted']
+            datePartsNeeded =  data['datePartsNeeded']
+            facultyAdvisor = data['facultyAdvisor']
+            paymentAccountNo = data['paymentAccountNo']
+            className = data['className']
+            machineRequested = data['machineRequested']
+            listParts = data['listParts']
+            # redirect to a new URL:
             return HttpResponseRedirect('success')
 
     # if a GET (or any other method) we'll create a blank form
