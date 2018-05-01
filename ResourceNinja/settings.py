@@ -25,7 +25,7 @@ SECRET_KEY = 't948t=#u-$%)ip$%7q&+*bqkzg*6z$lg!etqz(cn6=7+udarc!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
