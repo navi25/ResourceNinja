@@ -15,13 +15,19 @@ class RequestForm(forms.Form):
     className = forms.CharField(label='Class Name')
     machineRequested = forms.CharField(label='Machine Requested')
     listParts = forms.CharField(label='List of Part Names and Quantities')
-
+    maxHeight=forms.FloatField(label='Max Height')
+    minHeight=forms.FloatField(label='Min Height')
+    maxLength=forms.FloatField(label='Max Length')
+    minLength=forms.FloatField(label='Min Length')
+    maxWidth=forms.FloatField(label='Max Width')
+    minWidth=forms.FloatField(label='Min Width')
 
 class RequestOrderForm(forms.ModelForm):
     class Meta:
         model = OrderModel
         fields = ['firstName', 'lastName', 'dateSubmitted', 'datePartsNeeded', 'facultyAdvisor', 'paymentAccountNo',
-                  'className', 'machineRequested', 'listParts'
+                  'className', 'machineRequested', 'listParts' ,'maxHeight','minHeight','maxLength','minLength',
+                  'maxWidth','minWidth'
                   ]
         # labels = ['First Name', 'Last Name', 'Data Submitted (mm/dd/yyyy)', 'Data Parts Needed (mm/dd/yyyy)'
         #           'Professor or ASU Acct Rep that will be approving the purchase',
@@ -30,4 +36,3 @@ class RequestOrderForm(forms.ModelForm):
         #           'Machine Requested'
         #           'List of Part Names and Quantities'
         #           ]
-

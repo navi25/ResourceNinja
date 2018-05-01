@@ -2,6 +2,16 @@ from django.db import models
 from django.urls import reverse
 
 # Create your models here.
+
+from scheduler.SubModels import laborers
+from scheduler.SubModels import formDetails
+from scheduler.SubModels import materials
+from scheduler.SubModels import job
+from scheduler.SubModels import training
+from scheduler.SubModels import machine
+from scheduler.SubModels import customers
+from scheduler.SubModels import machineStatus
+from scheduler.SubModels import schedulingAndUsage
 class CustomerModel(models.Model):
     name = models.CharField(max_length=100)
     department = models.CharField(max_length=300)
@@ -37,3 +47,9 @@ class OrderModel(models.Model):
     className = models.CharField(max_length=100)
     machineRequested = models.CharField(max_length=200)
     listParts = models.CharField(max_length=200)
+    maxHeight=models.FloatField(default=None)
+    minHeight=models.FloatField(default=None)
+    maxLength=models.FloatField(default=None)
+    minLength=models.FloatField(default=None)
+    maxWidth=models.FloatField(default=None)
+    minWidth=models.FloatField(default=None)

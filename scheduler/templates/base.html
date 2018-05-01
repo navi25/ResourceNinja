@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  {% block title %}<title>Resource Ninja</title>{% endblock %}
-</head>
+{% load staticfiles %}
+<html>
+    <head>
+          {% block title %}<title>Resource Ninja</title>{% endblock %}
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+          <h1><a href="/">Resource Ninja</a></h1>
+       </div>
+       <div class="content container">
+           <div class="row">
+               <div class="col-md-8">
 
-<body>
   {% block content %}
     <!-- default content text (typically empty) -->
   {% endblock %}
-</body>
+
+</div>
+           </div>
+       </div>
+   </body>
 </html>

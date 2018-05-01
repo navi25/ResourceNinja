@@ -26,6 +26,12 @@ def submit_form(request):
             className = data['className']
             machineRequested = data['machineRequested']
             listParts = data['listParts']
+            maxHeight=data['maxHeight']
+            minHeight=data['minHeight']
+            maxLength=data['maxLength']
+            minLength=data['minLength']
+            maxWidth=data['maxWidth']
+            minWidth=data['minWidth']
             # redirect to a new URL:
             return HttpResponseRedirect('success')
 
